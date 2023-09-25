@@ -78,7 +78,7 @@ public class Selenium {
 		}
 	}
 	
-	public void waitForElementToDissapear(String cssSelector) {
+	public void waitForElementToDisappear(String cssSelector) {
 		while(true) {
 			try {
 				driver.findElement(By.cssSelector(cssSelector));
