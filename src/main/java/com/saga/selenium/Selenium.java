@@ -67,7 +67,7 @@ public class Selenium {
 
 	}
 
-	public void wait(String cssSelector) {
+	public void waitForElementToAppear(String cssSelector) {
 		while (true) {
 			try {
 				findElement(cssSelector);
@@ -76,5 +76,16 @@ public class Selenium {
 			// Element not found, so the loop will run again until element is found.
 			}
 		}
+	}
+	
+	public void waitForElementToDissapear(String cssSelector) {
+		while(true) {
+			try {
+				driver.findElement(By.cssSelector(cssSelector));
+			} catch(Exception e) {
+				break;
+			}	
+		}
+		
 	}
 }
