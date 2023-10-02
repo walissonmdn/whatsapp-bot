@@ -7,12 +7,17 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Formatter;
 
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.util.CellReference;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.DateUtil;
 
 public class Excel {
 	public File file;
@@ -77,6 +82,26 @@ public class Excel {
 		
 		cell.setCellValue(text);
 
+	}
+	
+	public String getCellValue(int rowIndex, int columnIndex) {		
+		Row row = this.sheet.getRow(rowIndex);
+		
+		if (row != null) {
+			Cell cell = row.getCell(columnIndex);
+			
+			if (cell != null) {
+				DataFormatter formatter = new DataFormatter();
+				String cellValue = formatter.formatCellValue(cell);
+		        System.out.println(cellValue);		
+		        return cellValue;
+			}
+			else System.out.println("No value on the cell.");
+			
+	    }
+		else System.out.println("No value on the row.");		
+		
+		return null;
 	}
 	
 }

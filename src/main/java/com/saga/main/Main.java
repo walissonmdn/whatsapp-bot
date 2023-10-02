@@ -8,7 +8,6 @@ import com.saga.whatsapp.Whatsapp;
 public class Main {
 
 	public static void main(String[] args) {
-
 		// Parameters
 		String excelFilePath = "C:\\Users\\walis\\OneDrive\\Saga\\Arquivos\\GitHub\\whatsappbot\\src\\main\\resources\\data.xlsx"; 
 		int numberOfRowsInWorksheet = 3;
@@ -43,7 +42,6 @@ public class Main {
 		}
 		
 		System.out.println("Done.");
-
 	}
 
 }
