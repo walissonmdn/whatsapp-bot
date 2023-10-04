@@ -23,6 +23,17 @@ public class Selenium {
 		element.click();
 	}
 	
+	public void clickLoop(WebElement element) {
+		while(true) {
+			try {
+				element.click();
+				break;
+			} catch(Exception e) {
+				// Repeat the code until it's possible to click on the element.
+			}
+		}
+	}	
+	
 	public void closeCurrentWindow() {
 		driver.close();
 	}
@@ -31,9 +42,35 @@ public class Selenium {
 		return driver.findElement(By.cssSelector(cssSelector));
 	}
 	
+	public WebElement findElementLoop(String cssSelector) {
+		WebElement element;
+		while(true) {
+			try {
+				element = driver.findElement(By.cssSelector(cssSelector));
+				break;
+			} catch(Exception e) {
+				// Repeat the code until element is found.
+			}
+		}
+		return element;
+	}	
+	
 	public List<WebElement> findElements(String cssSelector) {
 		return driver.findElements(By.cssSelector(cssSelector));
 	}
+	
+	public List<WebElement> findElementsLoop(String cssSelector) {
+		List<WebElement> elements;
+		while(true) {
+			try {
+				elements = driver.findElements(By.cssSelector(cssSelector));
+				break;
+			} catch(Exception e) {
+				// Repeat the code until elements are found.
+			}
+		}
+		return elements;
+	}	
 	
 	public String getAttribute(WebElement element, String attribute) {
 		return element.getAttribute(attribute);
@@ -44,7 +81,17 @@ public class Selenium {
 	}
 	
 	public String getText(WebElement element) {
-		String text = element.getText();
+		String text;
+		while(true) {
+			try {
+				text = element.getText();
+				break;
+			} catch (Exception e) {
+				//
+			}
+				
+		}
+		
 		return text;
 	}
 	
